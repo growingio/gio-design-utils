@@ -1,0 +1,29 @@
+import { Meta, Subtitle } from '@storybook/addon-docs/blocks';
+
+<Meta title="Pinyin Utils" />
+
+# 拼音工具函数
+
+<Subtitle>浏览器端处理拼音相关的工具函数集。</Subtitle>
+
+## injectPinyinWith
+
+为数组中每个对象的指定字段生成拼音，并添加到对象中。
+
+### 参数
+
+- **array** 待遍历的对象数组。
+- **attribute** 需要生成拼音的字段。
+
+### 返回值
+
+- 含有拼音字段的对象数组。
+
+### 示例
+
+```ts
+import { injectPinyinWith } from '@gio-design/utils';
+
+console.log(injectPinyinWith([{ name: '张三' }, { name: '李四' }, { name: '王五' }], 'name'));
+// => [{ name: '张三', namePinyin: ['zhang', 'san'] }, { name: '李四', namePinyin: ['li', 'si'] }, { name: '王五', namePinyin: ['wang', 'wu'] }]
+```
