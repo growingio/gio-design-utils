@@ -38,8 +38,6 @@ jobs:
         with:
           path: node_modules
           key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}
-      - name: Lint pull request title
-        run: echo "${{ github.event.pull_request.title }}" | npx commitlint
       - name: Cache lint reports
         uses: actions/cache@v2.1.4
         with:
@@ -47,6 +45,10 @@ jobs:
             stylelint-report.json
             eslint-report.json
           key: lint-reports-${{ github.sha }}
+      - name: Lint pull request title
+        run: echo "${{ github.event.pull_request.title }}" | npx commitlint
+      - name: StyleLint
+        run: yarn stylelint && yarn stylelint -f json -o stylelint-report.json
       - name: ESLint
         run: yarn eslint
   build:

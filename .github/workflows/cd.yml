@@ -47,6 +47,8 @@ jobs:
             stylelint-report.json
             eslint-report.json
           key: lint-reports-${{ github.sha }}
+      - name: StyleLint
+        run: yarn stylelint && yarn stylelint -f json -o stylelint-report.json
       - name: ESLint
         run: yarn eslint -f json -o eslint-report.json
   unit_test:
