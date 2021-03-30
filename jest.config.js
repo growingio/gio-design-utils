@@ -1,9 +1,4 @@
 module.exports = {
-  testEnvironment: 'node',
-  verbose: true,
-  transform: {
-    '^.+\\.js$': 'babel-jest',
-  },
   collectCoverageFrom: [
     'src/**/*.{ts,tsx}',
     '!src/**/*.d.ts',
@@ -13,5 +8,7 @@ module.exports = {
     '!src/**/__test?(s)__/*',
   ],
   coverageDirectory: './coverage/',
+  testEnvironment: 'node',
   testMatch: ['**/?(*.)+(spec|test).[jt]s?(x)'],
+  verbose: true,
 };
