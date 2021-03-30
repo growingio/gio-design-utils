@@ -4,8 +4,8 @@ import { flatten } from 'lodash';
 /**
  * Returns the array of object which has been injected pinyin attribute.
  *
- * @param array The array to iterate over.
- * @param attribute The attribute to transform key.
+ * @param array - The array to iterate over.
+ * @param attribute - The attribute to transform key.
  * @returns The array of object with pinyin attribute.
  *
  * @example
