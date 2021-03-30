@@ -11,17 +11,7 @@ module.exports = {
         },
       },
     },
-    '@storybook/addon-controls',
     '@storybook/addon-actions',
-    {
-      name: '@storybook/addon-storysource',
-      options: {
-        loaderOptions: {
-          prettierConfig: { printWidth: 80, singleQuote: false },
-        },
-      },
-    },
-    'storybook-addon-designs',
   ],
   webpackFinal: async (config) => {
     config.module.rules.push({

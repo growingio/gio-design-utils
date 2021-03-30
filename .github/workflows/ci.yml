@@ -40,6 +40,13 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}
       - name: Lint pull request title
         run: echo "${{ github.event.pull_request.title }}" | npx commitlint
+      - name: Cache lint reports
+        uses: actions/cache@v2.1.4
+        with:
+          path: |
+            stylelint-report.json
+            eslint-report.json
+          key: lint-reports-${{ github.sha }}
       - name: ESLint
         run: yarn eslint
   build:
@@ -86,3 +93,29 @@ jobs:
         uses: codecov/codecov-action@v1
         with:
           directory: coverage/
+  sonar:
+    name: Sonar scan
+    needs: [lint, unit_test]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Restore lint reports
+        uses: actions/cache@v2.1.4
+        with:
+          path: |
+            stylelint-report.json
+            eslint-report.json
+          key: lint-reports-${{ github.sha }}
+      - name: Restore test report
+        uses: actions/cache@v2.1.4
+        with:
+          path: coverage/lcov.info
+          key: test-report-${{ github.sha }}
+      - name: Upload reports to SonarCloud
+        uses: sonarsource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
