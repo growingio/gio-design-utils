@@ -8,7 +8,7 @@ module.exports = {
     '!src/**/__test?(s)__/*',
   ],
   coverageDirectory: './coverage/',
-  testEnvironment: 'node',
+  coveragePathIgnorePatterns: ['/node_modules/'],
   testMatch: ['**/?(*.)+(spec|test).[jt]s?(x)'],
   verbose: true,
 };

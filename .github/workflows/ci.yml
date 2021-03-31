@@ -89,6 +89,11 @@ jobs:
         with:
           path: node_modules
           key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}
+      - name: Cache test report
+        uses: actions/cache@v2.1.4
+        with:
+          path: coverage/lcov.info
+          key: test-report-${{ github.sha }}
       - name: Test
         run: yarn test --coverage
       - name: Upload coverage to Codecov
