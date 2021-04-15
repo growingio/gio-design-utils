@@ -1,0 +1,28 @@
+import { Meta, Subtitle, ArgsTable } from '@storybook/addon-docs/blocks';
+import { DesignContextPropsComponent } from './DesignContext.stories.tsx';
+
+<Meta title="Design Context" />
+
+# Design Context
+
+<Subtitle>组件库的全局化配置</Subtitle>
+
+## 参数
+
+<ArgsTable
+  components={{
+    DesignContextProps: DesignContextPropsComponent,
+  }}
+/>
+
+## 使用
+
+```ts
+import React from 'react';
+import { DegsignContext } from '@gio-design/utils';
+
+function SizeButton() {
+  const { size } = React.useContext(DegsignContext);
+  return <button>button size: {size} </button>;
+}
+```
