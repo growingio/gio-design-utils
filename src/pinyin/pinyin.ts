@@ -1,5 +1,6 @@
-import pinyin from 'pinyin/lib/web-pinyin';
 import { flatten } from 'lodash';
+
+const pinyin = require('pinyin/lib/web-pinyin');
 
 /**
  * Returns the array of object which has been injected pinyin attribute.
@@ -17,7 +18,7 @@ import { flatten } from 'lodash';
  * ```
  */
 export const injectPinyinWith = (array: object[], attribute: string) =>
-  array.map((element: object) => {
+  array.map((element: { [key: string]: string }) => {
     const attrPinyin = flatten(
       pinyin(element[attribute], {
         style: pinyin.STYLE_NORMAL,
