@@ -41,7 +41,7 @@
     "gio-rewire": "https://github.com/growingio/gio-rewire.git",
     "husky": "^6.0.0",
     "jest": "^26.0.1",
-    "jsdom": "^16.2.2",
+    "jsdom": "^16.5.3",
     "less": "4.1.1",
     "less-loader": "^8.0.0",
     "lint-staged": "^10.2.7",
