@@ -16,8 +16,8 @@ import { flatten } from 'lodash';
  * // => [{ name: '张三', namePinyin: ['zhang', 'san'] }, { name: '李四', namePinyin: ['li', 'si'] }, { name: '王五', namePinyin: ['wang', 'wu'] }]
  * ```
  */
-export const injectPinyinWith = (array: object[], attribute: string) => {
-  return array.map((element: object) => {
+export const injectPinyinWith = (array: object[], attribute: string) =>
+  array.map((element: object) => {
     const attrPinyin = flatten(
       pinyin(element[attribute], {
         style: pinyin.STYLE_NORMAL,
@@ -25,7 +25,6 @@ export const injectPinyinWith = (array: object[], attribute: string) => {
     );
     return Object.assign(element, { [`${attribute}Pinyin`]: attrPinyin });
   });
-};
 
 export default {
   injectPinyinWith,
