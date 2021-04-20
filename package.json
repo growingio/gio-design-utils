@@ -1,6 +1,6 @@
 {
   "name": "@gio-design/utils",
-  "version": "1.0.0",
+  "version": "21.4.0",
   "description": "Utils for GrowingIO Design",
   "main": "es/index.js",
   "repository": "https://github.com/growingio/gio-design-utils.git",
