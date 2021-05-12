@@ -1,0 +1,44 @@
+import { Meta, Subtitle } from '@storybook/addon-docs/blocks';
+import { ArgsTable } from '@storybook/components';
+
+<Meta title="Hooks/useControlledState" />
+
+# useControlledState
+
+当组件既要自己维护 `state`，并且还要根据 `props` 进行更新时，推荐使用 `useControlledState` 来创建 `state`。
+
+## 如何使用
+
+```ts
+import React from 'react';
+import { Input } from '@gio-design/components';
+import { useControlledState } from '@gio-design/utils';
+
+function App({ value }) {
+  const [controlledValue, setControlledValue] = useControlledState(value, '');
+  return <Input type="text" value={controlledValue} onChange={(e) => setControlledValue(e.target.value)} />;
+}
+```
+
+## 参数
+
+export const argTypes = {
+  key: {
+    name: 'value',
+    type: { name: 'string', required: true },
+    description: '通过 props 传递的值',
+    table: {
+      type: { summary: 'string' },
+    },
+  },
+  empty: {
+    name: 'empty',
+    type: { name: 'string', required: true },
+    description: '当 props 中未传递值时，使用 empty',
+    table: {
+      type: { summary: 'string' },
+    },
+  },
+};
+
+<ArgsTable rows={argTypes} />
