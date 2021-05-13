@@ -1628,6 +1628,13 @@
     intl-messageformat "9.6.7"
     tslib "^2.1.0"
 
+"@gio-design/cli@^21.2.0":
+  version "21.2.0"
+  resolved "https://registry.yarnpkg.com/@gio-design/cli/-/cli-21.2.0.tgz#f201a1c50acc1f2636a1cf7fcbbe034dc9979886"
+  integrity sha512-O8cVEFZN15hRZ3nCjvEIDtUG0e7wYbEX40xbEi279UkWokDSYxOhhcDnq+fmtw/u1aJRJMlFQgg+0DgnMOAmUA==
+  dependencies:
+    yargs "^16.2.0"
+
 "@gulp-sourcemaps/identity-map@1.X":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@gulp-sourcemaps/identity-map/-/identity-map-1.0.2.tgz#1e6fe5d8027b1f285dc0d31762f566bccd73d5a9"
