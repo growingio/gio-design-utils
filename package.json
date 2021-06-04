@@ -41,7 +41,7 @@
     "eslint-plugin-tsdoc": "^0.2.11",
     "gio-rewire": "https://github.com/growingio/gio-rewire.git",
     "husky": "^6.0.0",
-    "jest": "^26.0.1",
+    "jest": "^27.0.4",
     "jsdom": "^16.2.2",
     "less": "4.1.1",
     "less-loader": "^8.0.0",
