@@ -9,6 +9,7 @@ module.exports = {
   ],
   coverageDirectory: './coverage/',
   coveragePathIgnorePatterns: ['/node_modules/'],
+  testEnvironment: 'jsdom',
   testMatch: ['**/?(*.)+(spec|test).[jt]s?(x)'],
   verbose: true,
 };
