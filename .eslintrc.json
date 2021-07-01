@@ -5,6 +5,10 @@
     "jest": true
   },
   "extends": ["plugin:react/recommended", "plugin:prettier/recommended", "airbnb", "prettier"],
+  "globals": {
+    "React": true,
+    "JSX": true
+  },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
