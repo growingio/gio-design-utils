@@ -10,7 +10,7 @@
     "@babel/plugin-transform-runtime": "^7.13.15",
     "@babel/preset-typescript": "^7.12.7",
     "@commitlint/cli": "12.1.1",
-    "@commitlint/config-conventional": "12.1.1",
+    "@commitlint/config-conventional": "12.1.4",
     "@gio-design/cli": "^21.2.0",
     "@storybook/addon-actions": "^6.2.8",
     "@storybook/addon-docs": "^6.2.8",
