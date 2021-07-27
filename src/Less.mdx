@@ -1,0 +1,23 @@
+import { Subtitle, ArgsTable, Story, Canvas } from '@storybook/addon-docs';
+import DateSelector from './index';
+
+# Less
+
+<Subtitle>一些常用的样式集合</Subtitle>
+
+## Mixins（混合）
+
+### Scrollbar（滚动条）
+
+当页面发生滚动时，页面下方或者右侧出现的条形。
+
+#### 交互规则
+
+- 滚动条悬浮于页面之上。
+- 当页面静止，且未 Hover 到滚动条主体或者背景区域时，不显示滚动条。
+- 当鼠标在可滚动区域内滚动时，显示滚动条主体。
+- 当鼠标 Hover 到滚动条背景区域时，显示滚动条主体，点击背景条的某一个位置，滚动条主体的中心移动至点击的位置。
+
+<Canvas>
+  <Story id="less-mixins--scrollbar" />
+</Canvas>
