@@ -23,3 +23,36 @@
   -moz-box-shadow: @arguments;
   box-shadow: @arguments;
 }
+
+.scrollbar(@x: hidden, @y: overlay) {
+  overflow-x: @x;
+  overflow-y: @y;
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    -webkit-appearance: none;
+    background: transparent;
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    width: 4px;
+    opacity: 0;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    // @palette-black-3
+    background: rgba(173, 178, 194, 0.6);
+    border-radius: 10px;
+    display: none;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    // @palette-black-4
+    background: rgba(123, 129, 156, 0.6);
+  }
+
+  &:hover::-webkit-scrollbar-thumb {
+    display: block;
+  }
+}
