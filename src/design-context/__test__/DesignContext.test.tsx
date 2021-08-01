@@ -1,17 +1,19 @@
 import React from 'react';
 import { renderHook } from '@testing-library/react-hooks';
 import DesignContext, { DesignProvider, getDesignPrefixCls } from '../DesignContext';
-import { DesignContextProps } from '../interfaces';
+import { DesignContextProps, SizeType } from '../interfaces';
 
 function useDesignContext() {
   return React.useContext(DesignContext);
 }
 
-const wrapper = ({ children, props }: { children: React.ReactNode; props: DesignContextProps }) => (
+const wrapper = ({ children, props }: { children?: React.ReactNode; props: DesignContextProps }) => (
   <DesignProvider {...props}>{children}</DesignProvider>
 );
 
 describe('DesignContext', () => {
+  const defaultProps = { getPrefixCls: getDesignPrefixCls };
+
   it('has default getPrefixCls function', () => {
     expect(getDesignPrefixCls('design')).toBe('gio-design');
     expect(getDesignPrefixCls('design', 'growing')).toBe('growing-design');
@@ -24,17 +26,17 @@ describe('DesignContext', () => {
   });
 
   it('can change props', () => {
-    const defaultProps = { size: 'small' };
+    const currentProps = { ...defaultProps, size: 'small' as SizeType };
     const { result, rerender } = renderHook(() => useDesignContext(), {
       wrapper,
-      initialProps: { props: defaultProps },
+      initialProps: { props: currentProps },
     });
-    expect(result.current.size).toEqual(defaultProps.size);
+    expect(result.current.size).toEqual(currentProps.size);
     expect(result.current.intl).toEqual(undefined);
 
-    const currentProps = { size: 'middle', intl: { locale: 'zh-cn' } };
-    rerender({ props: currentProps });
-    expect(result.current.size).toEqual(currentProps.size);
-    expect(result.current.intl).toEqual(currentProps.intl);
+    const newProps = { ...defaultProps, size: 'middle' as SizeType, intl: { locale: 'zh-cn' } };
+    rerender({ props: newProps });
+    expect(result.current.size).toEqual(newProps.size);
+    expect(result.current.intl).toEqual(newProps.intl);
   });
 });

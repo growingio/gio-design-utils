@@ -1,2 +1,2 @@
 export { default as DesignContext, DesignConsumer, DesignProvider } from './DesignContext';
-export { SizeType, DesignContextProps, DesignProviderProps } from './interfaces';
+export type { SizeType, DesignContextProps, DesignProviderProps } from './interfaces';
