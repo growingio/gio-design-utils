@@ -2,13 +2,23 @@
   "name": "@gio-design/utils",
   "version": "21.7.0",
   "description": "Utils for GrowingIO Design",
-  "main": "es/index.js",
   "repository": "https://github.com/growingio/gio-design-utils.git",
   "author": "GrowingIO Frontend Team <eng-frontend@growingio.com>",
   "license": "Apache-2.0",
+  "files": [
+    "dist",
+    "lib",
+    "es"
+  ],
+  "sideEffects": [
+    "dist/*",
+    "*.less"
+  ],
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "unpkg": "dist/utils.min.js",
+  "typings": "lib/index.d.ts",
   "devDependencies": {
-    "@babel/plugin-transform-runtime": "^7.13.15",
-    "@babel/preset-typescript": "^7.12.7",
     "@commitlint/cli": "13.1.0",
     "@commitlint/config-conventional": "12.1.1",
     "@gio-design/cli": "^21.2.0",
@@ -23,13 +33,11 @@
     "@storybook/react": "^6.3.6",
     "@testing-library/react": "^12.0.0",
     "@testing-library/react-hooks": "^7.0.0",
-    "@types/jest": "^26.0.14",
+    "@types/jest": "^26.0.24",
     "@types/lodash": "^4.14.168",
     "@types/react-test-renderer": "^17.0.1",
     "@typescript-eslint/eslint-plugin": "4.28.1",
     "@typescript-eslint/parser": "^4.1.0",
-    "babel-eslint": "^10.1.0",
-    "babel-loader": "^8.1.0",
     "commitizen": "^4.1.2",
     "conventional-changelog-cli": "^2.1.1",
     "cz-conventional-changelog": "^3.3.0",
@@ -42,11 +50,11 @@
     "eslint-plugin-react": "^7.20.6",
     "eslint-plugin-react-hooks": "^4.1.0",
     "eslint-plugin-tsdoc": "^0.2.11",
-    "gio-rewire": "https://github.com/growingio/gio-rewire.git",
+    "father-build": "^1.19.6",
     "husky": "^7.0.1",
     "jest": "27.0.4",
     "jsdom": "^16.2.2",
-    "less": "4.1.1",
+    "less": "3.13.1",
     "less-loader": "^10.0.0",
     "lint-staged": "^11.0.0",
     "prettier": "^2.0.5",
@@ -59,6 +67,7 @@
     "stylelint-declaration-block-no-ignored-properties": "^2.3.0",
     "stylelint-order": "^4.1.0",
     "stylelint-prettier": "^1.1.2",
+    "ts-jest": "^27.0.4",
     "typescript": "^4.0.2",
     "webpack": "^5.46.0"
   },
@@ -72,7 +81,7 @@
     }
   },
   "scripts": {
-    "build": "gio-rewire lib compile",
+    "build": "father-build",
     "build-sotrybook": "build-storybook --quiet -s public",
     "eslint": "eslint src --ext .ts,.tsx",
     "gen-changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
@@ -85,6 +94,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@babel/runtime": "^7.14.8",
     "lodash": "^4.17.21",
     "pinyin": "^2.9.1",
     "react-intl": "^5.15.8"

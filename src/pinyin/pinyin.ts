@@ -18,13 +18,16 @@ const pinyin = require('pinyin/lib/web-pinyin');
  * ```
  */
 export const injectPinyinWith = (array: object[], attribute: string) =>
-  array.map((element: { [key: string]: string }) => {
-    const attrPinyin = flatten(
-      pinyin(element[attribute], {
-        style: pinyin.STYLE_NORMAL,
-      })
-    );
-    return Object.assign(element, { [`${attribute}Pinyin`]: attrPinyin });
+  array.map((element: object) => {
+    if (attribute in element) {
+      const attrPinyin = flatten(
+        pinyin(element[attribute as keyof typeof element], {
+          style: pinyin.STYLE_NORMAL,
+        })
+      );
+      return Object.assign(element, { [`${attribute}Pinyin`]: attrPinyin });
+    }
+    return element;
   });
 
 export default {

@@ -51,7 +51,7 @@ jobs:
       - name: StyleLint
         run: yarn stylelint && yarn stylelint -f json -o stylelint-report.json
       - name: ESLint
-        run: yarn eslint
+        run: yarn eslint && yarn eslint -f json -o eslint-report.json
   build:
     name: Build package
     needs: install

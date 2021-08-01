@@ -6,9 +6,9 @@ export { IntlShape } from 'react-intl';
 export type SizeType = 'small' | 'middle' | 'large' | undefined;
 
 export interface DesignContextProps {
-  getPrefixCls: (subPrefixCls?: string, customRootPrefixCls?: string) => string;
+  getPrefixCls: (subPrefixCls: string, customRootPrefixCls?: string) => string;
   intl?: IntlShape;
-  rootPrefixCls: string;
+  rootPrefixCls?: string;
   size?: SizeType;
 }
 

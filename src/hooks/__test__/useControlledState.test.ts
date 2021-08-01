@@ -28,9 +28,9 @@ describe('useControlledState', () => {
   });
 
   it('will be changed for undefined', () => {
-    const { result } = renderHook(() => useControlledState(undefined, undefined));
+    const { result } = renderHook(() => useControlledState<string | undefined>(undefined, undefined));
     act(() => {
-      result.current[1](newState, false);
+      result.current[1](newState, true);
     });
     expect(result.current[0]).toBe(newState);
   });
