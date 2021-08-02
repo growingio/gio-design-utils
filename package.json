@@ -16,7 +16,7 @@
   ],
   "main": "lib/index.js",
   "module": "es/index.js",
-  "unpkg": "dist/utils.min.js",
+  "unpkg": "dist/utils.umd.min.js",
   "typings": "lib/index.d.ts",
   "devDependencies": {
     "@commitlint/cli": "13.1.0",
@@ -98,5 +98,13 @@
     "lodash": "^4.17.21",
     "pinyin": "^2.9.1",
     "react-intl": "^5.15.8"
-  }
+  },
+  "browserslist": [
+    "> 0.5%",
+    "last 2 versions",
+    "Firefox ESR",
+    "not dead",
+    "IE 11",
+    "not IE 10"
+  ]
 }
