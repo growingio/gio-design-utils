@@ -10,5 +10,4 @@ export default {
     minFile: true,
     sourcemap: true,
   },
-  runtimeHelpers: true,
 };
