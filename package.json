@@ -20,7 +20,7 @@
   "typings": "dist/index.d.ts",
   "devDependencies": {
     "@commitlint/cli": "13.1.0",
-    "@commitlint/config-conventional": "12.1.1",
+    "@commitlint/config-conventional": "13.1.0",
     "@gio-design/cli": "^21.2.0",
     "@storybook/addon-actions": "^6.3.6",
     "@storybook/addon-docs": "^6.3.6",
