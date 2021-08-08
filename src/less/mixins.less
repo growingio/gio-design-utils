@@ -25,9 +25,13 @@
 }
 
 .scrollbar(@x: hidden, @y: overlay) {
-  overflow-x: @x;
-  overflow-y: @y;
+  overflow: hidden;
   scrollbar-width: thin;
+
+  &:hover {
+    overflow-x: @x;
+    overflow-y: @y;
+  }
 
   &::-webkit-scrollbar {
     -webkit-appearance: none;
