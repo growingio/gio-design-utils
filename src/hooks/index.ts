@@ -1,5 +1,5 @@
 export { default as useControlledState } from './useControlledState';
-export { useIntl } from 'react-intl';
+export { default as useIntl } from './useIntl';
 export { default as useLocalStorage } from './useLocalStorage';
 export { default as usePrefixCls } from './usePrefixCls';
 export { default as useSize } from './useSize';
