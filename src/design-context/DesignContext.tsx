@@ -11,6 +11,7 @@ const DesignContext = React.createContext<DesignContextProps>({
   getPrefixCls: getDesignPrefixCls,
   rootPrefixCls: defaultRootPrefixCls,
   size: 'middle' as SizeType,
+  intl: { locale: 'zh-CN', defaultLocale: 'zh-CN' },
 });
 
 export const DesignConsumer = DesignContext.Consumer;
