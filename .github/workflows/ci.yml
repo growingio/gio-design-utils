@@ -2,9 +2,12 @@ name: Continuous Integration
 on:
   pull_request:
     types: [opened, synchronize]
+  push:
+    branches:
+      - master
 jobs:
   install:
-    if: ${{ github.actor != 'dependabot[bot]' }}
+    if: ${{ github.actor != 'dependabot[bot]' && !github.event.pull_request.head.repo.fork }}
     name: Install dependencies
     runs-on: ubuntu-latest
     steps:
@@ -46,8 +49,6 @@ jobs:
             stylelint-report.json
             eslint-report.json
           key: lint-reports-${{ github.sha }}
-      - name: Lint pull request title
-        run: echo "${{ github.event.pull_request.title }}" | npx commitlint
       - name: StyleLint
         run: yarn stylelint && yarn stylelint -f json -o stylelint-report.json
       - name: ESLint
@@ -68,6 +69,14 @@ jobs:
         with:
           path: node_modules
           key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}
+      - name: Cache package
+        uses: actions/cache@v2.1.6
+        with:
+          path: |
+            dist
+            es
+            lib
+          key: package-${{ github.sha }}
       - name: Build
         run: yarn build
   unit_test:
