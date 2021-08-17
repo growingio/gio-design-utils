@@ -1,20 +1,14 @@
 name: Continuous Delivery
-on:
-  workflow_run:
-    branches:
-      - master
-    workflows:
-      - Continuous Integration
-    types:
-      - completed
+on: workflow_dispatch
 jobs:
   publish-package:
-    if: ${{ github.event.workflow_run.conclusion == 'success' && startsWith(github.event.head_commit.message, 'docs(release)') }}
     name: Publish package
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: Setup Node.js
         uses: actions/setup-node@v2.4.0
         with:
@@ -40,6 +34,9 @@ jobs:
       - name: Get package version
         id: get-package-version
         run: echo "::set-output name=version::$(yarn -s get-version)"
+      - name: Get changelog
+        id: get-changelog
+        run: echo "::set-output name=changelog::$(yarn -s gen-version)"
       - name: Publish GitHub release
         uses: actions/create-release@v1
         env:
@@ -47,6 +44,6 @@ jobs:
         with:
           tag_name: v${{ steps.get-package-version.outputs.version }}
           release_name: v${{ steps.get-package-version.outputs.version }}
-          body_path: VERSION.md
+          body: ${{ steps.get-changelog.outputs.changelog }}
           draft: false
           prerelease: false
