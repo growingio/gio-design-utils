@@ -87,7 +87,7 @@
     "build-sotrybook": "build-storybook --quiet -s public",
     "eslint": "eslint src --ext .ts,.tsx",
     "gen-changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
-    "gen-version": "conventional-changelog -p angular > VERSION.md",
+    "gen-version": "conventional-changelog -p angular",
     "get-version": "gio-design version -p ./package.json",
     "postversion": "yarn gen-version && yarn gen-changelog",
     "preversion": "git fetch --tags",
