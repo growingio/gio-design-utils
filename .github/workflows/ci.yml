@@ -7,7 +7,6 @@ on:
       - master
 jobs:
   install:
-    if: ${{ github.actor != 'dependabot[bot]' && !github.event.pull_request.head.repo.fork }}
     name: Install dependencies
     runs-on: ubuntu-latest
     steps:
