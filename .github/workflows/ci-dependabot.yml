@@ -1,20 +1,17 @@
-name: Continuous Integration
+name: CI for Dependabot
 on:
-  pull_request:
+  pull_request_target:
     types: [opened, synchronize]
-  push:
-    branches:
-      - master
 jobs:
   install:
-    if: ${{ github.actor != 'dependabot[bot]' }}
+    if: ${{ github.actor == 'dependabot[bot]' }}
     name: Install dependencies
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Setup Node.js
-        uses: actions/setup-node@v2.4.0
+        uses: actions/setup-node@v2.3.0
         with:
           node-version: 14
       - name: Cache Node.js modules
@@ -42,17 +39,10 @@ jobs:
         with:
           path: node_modules
           key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}
-      - name: Cache lint reports
-        uses: actions/cache@v2.1.6
-        with:
-          path: |
-            stylelint-report.json
-            eslint-report.json
-          key: lint-reports-${{ github.sha }}
       - name: StyleLint
-        run: yarn stylelint && yarn stylelint -f json -o stylelint-report.json
+        run: yarn stylelint
       - name: ESLint
-        run: yarn eslint && yarn eslint -f json -o eslint-report.json
+        run: yarn eslint
   build:
     name: Build package
     needs: install
@@ -61,7 +51,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Setup Node.js
-        uses: actions/setup-node@v2.4.0
+        uses: actions/setup-node@v2.3.0
         with:
           node-version: 14
       - name: Restore Node.js modules
@@ -69,14 +59,6 @@ jobs:
         with:
           path: node_modules
           key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}
-      - name: Cache package
-        uses: actions/cache@v2.1.6
-        with:
-          path: |
-            dist
-            es
-            lib
-          key: package-${{ github.sha }}
       - name: Build
         run: yarn build
   unit_test:
@@ -87,7 +69,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Setup Node.js
-        uses: actions/setup-node@v2.4.0
+        uses: actions/setup-node@v2.3.0
         with:
           node-version: 14
       - name: Restore Node.js modules
@@ -95,40 +77,5 @@ jobs:
         with:
           path: node_modules
           key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}
-      - name: Cache test report
-        uses: actions/cache@v2.1.6
-        with:
-          path: coverage/lcov.info
-          key: test-report-${{ github.sha }}
       - name: Test
-        run: yarn test --coverage
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v2.0.2
-        with:
-          directory: coverage/
-  sonar:
-    name: Sonar scan
-    needs: [lint, unit_test]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - name: Restore lint reports
-        uses: actions/cache@v2.1.6
-        with:
-          path: |
-            stylelint-report.json
-            eslint-report.json
-          key: lint-reports-${{ github.sha }}
-      - name: Restore test report
-        uses: actions/cache@v2.1.6
-        with:
-          path: coverage/lcov.info
-          key: test-report-${{ github.sha }}
-      - name: Upload reports to SonarCloud
-        uses: sonarsource/sonarcloud-github-action@v1.6
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: yarn test
