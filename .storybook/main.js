@@ -1,5 +1,3 @@
-const path = require('path');
-
 module.exports = {
   addons: [
     {
@@ -41,7 +39,6 @@ module.exports = {
         },
       ],
     });
-
     return config;
   },
 };
