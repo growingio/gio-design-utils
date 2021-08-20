@@ -1,4 +1,13 @@
-## [21.8.4](https://github.com/growingio/gio-design-utils/compare/v21.8.2...v21.8.4) (2021-08-17)
+## [21.8.5](https://github.com/growingio/gio-design-utils/compare/v21.8.4...v21.8.5) (2021-08-20)
+
+
+### Bug Fixes
+
+* **design-context:** replace intl with locale ([a3da507](https://github.com/growingio/gio-design-utils/commit/a3da50712d9cdb70ace8586e6b22224f34dd2c02))
+
+
+
+## [21.8.4](https://github.com/growingio/gio-design-utils/compare/v21.8.3...v21.8.4) (2021-08-17)
 
 
 ### Bug Fixes
