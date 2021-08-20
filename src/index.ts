@@ -4,6 +4,6 @@ export type { DesignContextProps, DesignProviderProps, SizeType } from './design
 
 export { injectPinyinWith } from './pinyin';
 
-export { useControlledState, useIntl, useLocalStorage, usePrefixCls, useSize } from './hooks';
+export { useControlledState, useLocale, useLocalStorage, usePrefixCls, useSize } from './hooks';
 
 export type { BaseProps, CommonProps, OverridableComponent } from './interfaces';

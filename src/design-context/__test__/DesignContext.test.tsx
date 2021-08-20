@@ -23,6 +23,7 @@ describe('DesignContext', () => {
     const { result } = renderHook(() => useDesignContext());
     expect(result.current.rootPrefixCls).toEqual('gio');
     expect(result.current.getPrefixCls).toBe(getDesignPrefixCls);
+    expect(result.current.locale).toEqual('zh-CN');
   });
 
   it('can change props', () => {
@@ -32,11 +33,11 @@ describe('DesignContext', () => {
       initialProps: { props: currentProps },
     });
     expect(result.current.size).toEqual(currentProps.size);
-    expect(result.current.intl).toEqual(undefined);
+    expect(result.current.locale).toBeUndefined();
 
-    const newProps = { ...defaultProps, size: 'middle' as SizeType, intl: { locale: 'zh-cn' } };
+    const newProps = { ...defaultProps, size: 'middle' as SizeType, locale: 'zh' };
     rerender({ props: newProps });
     expect(result.current.size).toEqual(newProps.size);
-    expect(result.current.intl).toEqual(newProps.intl);
+    expect(result.current.locale).toEqual(newProps.locale);
   });
 });
