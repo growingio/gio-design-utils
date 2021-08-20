@@ -14,4 +14,3 @@ lib
 node_modules
 storybook-static
 *.log
-*-report.json

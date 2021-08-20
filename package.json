@@ -21,10 +21,9 @@
   "scripts": {
     "build": "father-build",
     "eslint": "eslint src --ext .ts,.tsx",
-    "gen-changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "gen-version": "conventional-changelog -p angular",
     "get-version": "gio-design version -p ./package.json",
-    "postversion": "yarn gen-version && yarn gen-changelog",
+    "postversion": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "preversion": "git fetch --tags",
     "storybook": "start-storybook -p 6006 -s public",
     "storybook:build": "build-storybook --quiet -s public",
