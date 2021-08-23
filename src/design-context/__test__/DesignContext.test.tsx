@@ -7,11 +7,12 @@ function useDesignContext() {
   return React.useContext(DesignContext);
 }
 
-const wrapper = ({ children, props }: { children?: React.ReactNode; props: DesignContextProps }) => (
+const wrapper = ({ children, props }: { children?: React.ReactNode; props: Partial<DesignContextProps> }) => (
   <DesignProvider {...props}>{children}</DesignProvider>
 );
 
 describe('DesignContext', () => {
+  const defaultLocale = { code: 'zh-CN' };
   const defaultProps = { getPrefixCls: getDesignPrefixCls };
 
   it('has default getPrefixCls function', () => {
@@ -21,22 +22,23 @@ describe('DesignContext', () => {
 
   it('has default props', () => {
     const { result } = renderHook(() => useDesignContext());
-    expect(result.current.rootPrefixCls).toEqual('gio');
-    expect(result.current.getPrefixCls).toBe(getDesignPrefixCls);
-    expect(result.current.locale).toEqual('zh-CN');
+    expect(result.current?.rootPrefixCls).toEqual('gio');
+    expect(result.current?.getPrefixCls).toBe(getDesignPrefixCls);
+    expect(result.current?.locale).toEqual(defaultLocale);
   });
 
   it('can change props', () => {
-    const currentProps = { ...defaultProps, size: 'small' as SizeType };
+    const currentProps = { ...defaultProps, size: 'middle' as SizeType };
     const { result, rerender } = renderHook(() => useDesignContext(), {
       wrapper,
-      initialProps: { props: currentProps },
+      initialProps: { props: {} },
     });
     expect(result.current.size).toEqual(currentProps.size);
-    expect(result.current.locale).toBeUndefined();
+    expect(result.current.locale).toEqual(defaultLocale);
 
-    const newProps = { ...defaultProps, size: 'middle' as SizeType, locale: 'zh' };
+    const newProps = { ...defaultProps, rootPrefixCls: 'custom', size: 'small' as SizeType, locale: { code: 'zh' } };
     rerender({ props: newProps });
+    expect(result.current.rootPrefixCls).toEqual(newProps.rootPrefixCls);
     expect(result.current.size).toEqual(newProps.size);
     expect(result.current.locale).toEqual(newProps.locale);
   });

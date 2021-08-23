@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 export { DesignContext, DesignProvider, DesignConsumer } from './design-context';
-export type { DesignContextProps, DesignProviderProps, SizeType } from './design-context';
+export type { DesignContextProps, DesignProviderProps, Locale, SizeType } from './design-context';
 
 export { injectPinyinWith } from './pinyin';
 
