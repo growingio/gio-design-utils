@@ -1,9 +1,10 @@
 import { useContext } from 'react';
+import { get } from 'lodash';
 import { DesignContext } from '../design-context';
 
-const useLocale = () => {
+const useLocale = (componentName: string) => {
   const { locale } = useContext(DesignContext);
-  return locale;
+  return get(locale, componentName);
 };
 
 export default useLocale;
