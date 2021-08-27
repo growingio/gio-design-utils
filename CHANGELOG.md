@@ -1,3 +1,12 @@
+## [21.8.6](https://github.com/growingio/gio-design-utils/compare/v21.8.5...v21.8.6) (2021-08-27)
+
+
+### Features
+
+* upgrade locale props for design context ([b47acc9](https://github.com/growingio/gio-design-utils/commit/b47acc96d2cfd64ab373304e0e369a1d7e281a31))
+
+
+
 ## [21.8.5](https://github.com/growingio/gio-design-utils/compare/v21.8.4...v21.8.5) (2021-08-20)
 
 
