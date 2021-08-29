@@ -75,7 +75,6 @@ jobs:
         with:
           directory: coverage/
   sonar:
-    if: ${{ github.actor != 'dependabot[bot]' }}
     name: Sonar scan
     needs: unit_test
     runs-on: ubuntu-latest
