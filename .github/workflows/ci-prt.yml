@@ -79,13 +79,13 @@ jobs:
         run: yarn test --coverage
   sonar:
     name: Sonar scan
-    needs:
-      - unit_test
+    needs: unit_test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
+          fetch-depth: 0
           ref: ${{ github.event.pull_request.head.sha }}
       - name: Restore test report
         uses: actions/cache@v2.1.6
@@ -97,7 +97,7 @@ jobs:
         with:
           args: |
             -Dsonar.pullrequest.key=${{ github.event.pull_request.number }}
-            -Dsonar.pullrequest.branch=${{ github.event.pull_request.head.label }}
+            -Dsonar.pullrequest.branch=${{ github.event.pull_request.head.ref }}
             -Dsonar.pullrequest.base=${{ github.event.pull_request.base.ref }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
