@@ -7,15 +7,8 @@ describe('formatTimeRange & humanizeTimeRange', () => {
   const formatFormula = 'yyyy-MM-dd HH:mm:ss';
 
   test('use day', () => {
-    const res = formatTimeRange('week:1,0');
-    console.log(res);
-    console.log(
-      format(new Date(Number(res.startTime)), formatFormula),
-      format(new Date(Number(res.endTime)), formatFormula)
-    );
     const range = 'day:7, 1';
     const data = formatTimeRange(range);
-    console.log(humanizeTimeRange('day:8,1'));
     expect(format(new Date(Number(data.startTime)), formatFormula)).toBe(
       format(getCurrentTs() - LONG_DAY * 7, formatFormula)
     );
