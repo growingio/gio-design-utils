@@ -3,11 +3,9 @@ import { LONG_DAY, LONG_MONTH, LONG_WEEK } from '../constants';
 import { formatTimeRange, humanizeTimeRange } from '../formatTimeRange';
 
 describe('formatTimeRange & humanizeTimeRange', () => {
-  const getCurrentTs = () => {
-    return new Date(format(new Date(), 'MM/dd/yyyy')).getTime();
-  };
-
+  const getCurrentTs = () => new Date(format(new Date(), 'MM/dd/yyyy')).getTime();
   const formatFormula = 'yyyy-MM-dd HH:mm:ss';
+
   test('use day', () => {
     const res = formatTimeRange('week:1,0');
     console.log(res);
