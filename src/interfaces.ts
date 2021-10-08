@@ -66,3 +66,7 @@ export interface OverridableTypeMap {
   props: {};
   defaultComponent: React.ElementType;
 }
+
+export interface LooseObject {
+  [name: string]: any;
+}
