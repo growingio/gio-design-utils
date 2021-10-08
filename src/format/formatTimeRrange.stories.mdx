@@ -1,0 +1,39 @@
+import { Meta, Subtitle } from '@storybook/addon-docs';
+
+<Meta title="fomartTimeRange" />
+
+# 解析 timeRange 工具
+
+## formatTimeRange
+
+解析 timeRange
+
+### 示例
+
+```ts
+import { formatTimeRange, humanizeTimeRange } from '@gio-design/utils';
+
+formatTimeRange('day:8,1');
+// {
+//     type: 'relative',
+//     prefix: 'day',
+//     range: 'day:8,1',
+//     start: 8,
+//     end: 1,
+//     startTime: 1632931200000, // 2021-09-30 00:00:00
+//     endTime: 1633622399999    // 2021-10-07 23:59:59
+// }
+humanizeTimeRange('day:8,1'); // 过去 7 天
+
+formatTimeRange('week:1,0');
+//  {
+//     type: 'relative',
+//     prefix: 'week',
+//     range: 'week:1,0',
+//     start: 1,
+//     end: 0,
+//     startTime: 1633017600000, // 2021-10-01 00:00:00
+//     endTime: 1633686970337    // 2021-10-08 23:59:59
+// }
+humanizeTimeRange('week:1,0'); // 本周
+```
