@@ -2,13 +2,12 @@ import { format, subDays } from 'date-fns';
 import { LONG_DAY, LONG_MONTH, LONG_WEEK } from '../constants';
 import { formatTimeRange, humanizeTimeRange } from '../formatTimeRange';
 
-const getCurrentTs = () => {
-  return new Date(format(new Date(), 'MM/dd/yyyy')).getTime();
-};
-
-const formatFormula = 'yyyy-MM-dd HH:mm:ss';
-
 describe('formatTimeRange & humanizeTimeRange', () => {
+  const getCurrentTs = () => {
+    return new Date(format(new Date(), 'MM/dd/yyyy')).getTime();
+  };
+
+  const formatFormula = 'yyyy-MM-dd HH:mm:ss';
   test('use day', () => {
     const res = formatTimeRange('week:1,0');
     console.log(res);
@@ -18,7 +17,7 @@ describe('formatTimeRange & humanizeTimeRange', () => {
     );
     const range = 'day:7, 1';
     const data = formatTimeRange(range);
-    console.log(humanizeTimeRange('week:1,0'));
+    console.log(humanizeTimeRange('day:8,1'));
     expect(format(new Date(Number(data.startTime)), formatFormula)).toBe(
       format(getCurrentTs() - LONG_DAY * 7, formatFormula)
     );
