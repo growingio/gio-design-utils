@@ -86,8 +86,4 @@ describe('call format', () => {
   test('call analysisSourceData with falsy data', () => {
     expect(analysisSourceData({ data: [undefined] })).toEqual([{}]);
   });
-
-  test('call analysisSourceData with falsy column', () => {
-    expect(analysisSourceData({ data: [undefined], meta: { columns: [{}] } })).toEqual([{ undefined: undefined }]);
-  });
 });
