@@ -41,6 +41,6 @@ describe('formatTimeRange & humanizeTimeRange', () => {
     const range = `since: ${sinceTs}`;
     const data = formatTimeRange(range);
     expect(data.startTime).toBe(sinceTs);
-    expect(humanizeTimeRange(range)).toBe('自 2021/09/28 至昨日');
+    expect(humanizeTimeRange(range)).toBe(`自 ${format(subDays(new Date(), 10), 'yyyy/MM/dd')} 至昨日`);
   });
 });
