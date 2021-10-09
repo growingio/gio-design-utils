@@ -25,12 +25,8 @@ export const analysisSourceData = (chartData: LooseObject, options?: AnalysisOpt
   return source.map((item: LooseObject) => {
     const row = {} as LooseObject;
     columns?.forEach((column: LooseObject, index: number) => {
-      let value = item?.[index];
-      if (formatter) {
-        value = formatter(value, column);
-      } else {
-        value = analysisRow(chartType, item?.[index], column);
-      }
+      const defaultValue = item?.[index];
+      const value = formatter ? formatter(defaultValue, column) : analysisRow(chartType, defaultValue, column);
       const rowId = instead[column.id] || column.id;
       row[rowId] = value;
     });
