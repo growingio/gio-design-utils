@@ -1,3 +1,13 @@
+# [22.0.0](https://github.com/growingio/gio-design-utils/compare/v21.8.6...v22.0.0) (2021-10-09)
+
+
+### Features
+
+* **analysisSourceData:** add function about analysis chart data ([#161](https://github.com/growingio/gio-design-utils/issues/161)) ([03e59db](https://github.com/growingio/gio-design-utils/commit/03e59dbb0dad0c5e870af085a8cc1aea5af0b6af))
+* **formatTimeRange:** add formatTimeRange and humanizeTimeRange ([#160](https://github.com/growingio/gio-design-utils/issues/160)) ([a8d2e9f](https://github.com/growingio/gio-design-utils/commit/a8d2e9f176c08162ca91c1383bc28a7b4e0f487d))
+
+
+
 ## [21.8.6](https://github.com/growingio/gio-design-utils/compare/v21.8.5...v21.8.6) (2021-08-27)
 
 
