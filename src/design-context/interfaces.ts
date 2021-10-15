@@ -1,6 +1,6 @@
 import React from 'react';
 
-export type SizeType = 'small' | 'middle' | 'large' | undefined;
+export type SizeType = 'small' | 'normal' | string;
 export interface Locale {
   code: string;
   [key: string]: any;
