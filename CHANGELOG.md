@@ -7,15 +7,6 @@
 
 
 
-## [22.0.1](https://github.com/growingio/gio-design-utils/compare/v22.0.0...v22.0.1) (2021-10-19)
-
-
-### Bug Fixes
-
-* **context:** support theme in context ([#167](https://github.com/growingio/gio-design-utils/issues/167)) ([94e1781](https://github.com/growingio/gio-design-utils/commit/94e1781b3cea9a52dfaca73e075e5de6b5ae1a59))
-
-
-
 # [22.0.0](https://github.com/growingio/gio-design-utils/compare/v21.8.6...v22.0.0) (2021-10-09)
 
 
