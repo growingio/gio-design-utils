@@ -11,6 +11,7 @@ const defaultProps = {
   rootPrefixCls: defaultRootPrefixCls,
   size: 'middle' as SizeType,
   locale: { code: 'zh-CN' },
+  theme: {},
 };
 const DesignContext = React.createContext<DesignContextProps>(defaultProps);
 
@@ -21,9 +22,12 @@ export const DesignProvider = ({
   rootPrefixCls = defaultRootPrefixCls,
   size = 'middle' as SizeType,
   locale = { code: 'zh-CN' },
+  theme = {},
   children,
 }: DesignProviderProps) => (
-  <DesignContext.Provider value={{ getPrefixCls, rootPrefixCls, size, locale }}>{children}</DesignContext.Provider>
+  <DesignContext.Provider value={{ getPrefixCls, rootPrefixCls, size, locale, theme }}>
+    {children}
+  </DesignContext.Provider>
 );
 
 export default DesignContext;
