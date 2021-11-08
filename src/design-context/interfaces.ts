@@ -4,9 +4,9 @@ export interface Locale {
 }
 
 interface DesignContextInteral {
-  locale?: Locale;
+  locale: Locale;
   prefixCls: string;
-  theme?: Record<string, any>;
+  theme: Record<string, any>;
 }
 
 export type DesignContextProps<T = Record<string, any>> = DesignContextInteral & T;

@@ -5,7 +5,7 @@ const getPrefixCls = (prefix: string, rootPrefix: string) => [prefix, rootPrefix
 
 const usePrefixCls = (prefixCls: string, customRootPrefixCls?: string) => {
   const { prefixCls: rootPrefixCls } = useContext(DesignContext);
-  return getPrefixCls(prefixCls, customRootPrefixCls ?? rootPrefixCls);
+  return getPrefixCls(customRootPrefixCls ?? rootPrefixCls, prefixCls);
 };
 
 export default usePrefixCls;
