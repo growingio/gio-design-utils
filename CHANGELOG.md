@@ -1,3 +1,7 @@
+# [23.0.0](https://github.com/growingio/gio-design-utils/compare/v22.0.2...v23.0.0) (2021-11-08)
+
+
+
 ## [22.0.2](https://github.com/growingio/gio-design-utils/compare/v22.0.1...v22.0.2) (2021-10-19)
 
 
