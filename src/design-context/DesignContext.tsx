@@ -1,33 +1,13 @@
 import React from 'react';
-import type { DesignContextProps, DesignProviderProps, SizeType } from './interfaces';
+import type { DesignContextProps } from './interfaces';
 
-const defaultRootPrefixCls = 'gio';
+const DefaultPrefixCls = 'gio';
 
-export const getDesignPrefixCls = (subPrefixCls: string, customRootPrefixCls: string = defaultRootPrefixCls): string =>
-  [customRootPrefixCls, subPrefixCls].join('-');
-
-const defaultProps = {
-  getPrefixCls: getDesignPrefixCls,
-  rootPrefixCls: defaultRootPrefixCls,
-  size: 'middle' as SizeType,
+export const DefaultContextProps = {
+  prefixCls: DefaultPrefixCls,
   locale: { code: 'zh-CN' },
   theme: {},
 };
-const DesignContext = React.createContext<DesignContextProps>(defaultProps);
-
-export const DesignConsumer = DesignContext.Consumer;
-
-export const DesignProvider = ({
-  getPrefixCls = getDesignPrefixCls,
-  rootPrefixCls = defaultRootPrefixCls,
-  size = 'middle' as SizeType,
-  locale = { code: 'zh-CN' },
-  theme = {},
-  children,
-}: DesignProviderProps) => (
-  <DesignContext.Provider value={{ getPrefixCls, rootPrefixCls, size, locale, theme }}>
-    {children}
-  </DesignContext.Provider>
-);
+const DesignContext = React.createContext<DesignContextProps>(DefaultContextProps);
 
 export default DesignContext;
