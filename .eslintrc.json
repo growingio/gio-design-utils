@@ -4,7 +4,7 @@
     "es2021": true,
     "jest": true
   },
-  "extends": ["plugin:react/recommended", "plugin:prettier/recommended", "airbnb", "prettier"],
+  "extends": ["plugin:react/recommended", "plugin:prettier/recommended", "airbnb", "prettier", "plugin:storybook/recommended"],
   "globals": {
     "React": true,
     "JSX": true
