@@ -42,7 +42,7 @@
   },
   "devDependencies": {
     "@commitlint/cli": "15.0.0",
-    "@commitlint/config-conventional": "13.1.0",
+    "@commitlint/config-conventional": "15.0.0",
     "@gio-design/cli": "^21.2.0",
     "@storybook/addon-actions": "^6.3.6",
     "@storybook/addon-docs": "^6.3.6",
