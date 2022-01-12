@@ -78,7 +78,7 @@
     "father-build": "^1.19.6",
     "husky": "^7.0.1",
     "jest": "27.4.7",
-    "jsdom": "^17.0.0",
+    "jsdom": "^19.0.0",
     "less": "3.13.1",
     "less-loader": "^10.0.0",
     "lint-staged": "^12.1.5",
