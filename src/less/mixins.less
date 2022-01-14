@@ -13,21 +13,17 @@
 }
 
 .border-radius(@radius) {
-  -webkit-border-radius: @radius;
-  -moz-border-radius: @radius;
   border-radius: @radius;
 }
 
 .box-shadow(@x: 0, @y: 0, @blur: 1px, @color: #000) {
-  -webkit-box-shadow: @arguments;
-  -moz-box-shadow: @arguments;
   box-shadow: @arguments;
 }
 
 .scrollbar(@x: hidden, @y: overlay) {
   overflow: hidden;
   scrollbar-width: thin;
-  scrollbar-color: rgba(173, 178, 194, 0.6) rgba(255, 255, 255, 0);
+  scrollbar-color: rgb(173 178 194 / 60%) rgb(255 255 255 / 0%);
 
   &:hover {
     overflow-x: scroll;
@@ -37,7 +33,7 @@
   }
 
   &::-webkit-scrollbar {
-    -webkit-appearance: none;
+    appearance: none;
     background: transparent;
     width: 4px;
     height: 4px;
@@ -51,11 +47,11 @@
   }
 
   &::-webkit-scrollbar-thumb {
-    background: rgba(173, 178, 194, 0.6);
+    background: rgb(173 178 194 / 60%);
     border-radius: 10px;
   }
 
   &::-webkit-scrollbar-thumb:hover {
-    background: rgba(123, 129, 156, 0.6);
+    background: rgb(123 129 156 / 60%);
   }
 }

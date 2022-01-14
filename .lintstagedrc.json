@@ -1,5 +1,5 @@
 {
   "**/*": "prettier --write --ignore-unknown",
-  "*.less": "stylelint --syntax less --fix",
+  "*.less": "stylelint --custom-syntax postcss-less --fix",
   "*.(j|t)s?(x)": "eslint --cache --fix"
 }
