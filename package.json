@@ -77,7 +77,7 @@
     "eslint-plugin-tsdoc": "^0.2.11",
     "father-build": "^1.19.6",
     "husky": "^7.0.1",
-    "jest": "27.4.7",
+    "jest": "27.5.1",
     "jsdom": "^19.0.0",
     "less": "3.13.1",
     "less-loader": "^10.0.0",
